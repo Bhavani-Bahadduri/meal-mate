@@ -20,3 +20,20 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.cuisine} {self.rating}/5"
+
+
+
+
+
+
+class MenuItem(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete = models.CASCADE, related_name = "menu_items")
+
+    name = models.CharField(max_length = 20)
+    picture = models.URLField(max_length = 200, default="https://th.bing.com/th?id=OIP.Jd-H-LHiVSkNBlLR65nuVwHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2")
+    description = models.CharField(max_length = 200)
+    price = models.FloatField()
+    is_veg = models.BooleanField(default = True)
+
+    def __str__(self):
+        return f"{self.name} {self.description} {self.price}"

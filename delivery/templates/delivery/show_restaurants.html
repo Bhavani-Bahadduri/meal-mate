@@ -26,6 +26,9 @@
                 <td>{{ restaurant.name }}</td>
                 <td>{{ restaurant.cuisine }}</td>
                 <td>{{ restaurant.rating }}/5</td>
+                <td>
+                    <a href="{% url 'restaurant_menu' restaurant.id %}">View Menu</a>
+                </td>
              
             </tr>
             {% endfor %}
